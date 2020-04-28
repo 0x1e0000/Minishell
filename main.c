@@ -6,11 +6,13 @@
 /*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:13:02 by macbookpro        #+#    #+#             */
-/*   Updated: 2020/04/28 22:13:31 by macbookpro       ###   ########.fr       */
+/*   Updated: 2020/04/28 22:15:05 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void){
+#include <stdio.h>
 
+int	main(void){
+	printf("Hello World");
 	return (0);
 }
