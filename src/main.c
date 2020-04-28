@@ -6,11 +6,11 @@
 /*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:13:02 by macbookpro        #+#    #+#             */
-/*   Updated: 2020/04/28 22:15:05 by macbookpro       ###   ########.fr       */
+/*   Updated: 2020/04/28 22:33:08 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../includes/minishell.h"
 
 int	main(void){
 	printf("Hello World");

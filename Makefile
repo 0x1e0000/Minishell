@@ -1,8 +1,8 @@
 NAME		=		minishell
 
-SRCS		=		*.c
+SRCS		=		src/*.c
 
-OBJS		=		$(SRCS:.c=.o)
+OBJS		=		*.o
 
 all: $(NAME)
 
