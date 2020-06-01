@@ -1,5 +1,7 @@
 NAME		=		minishell
 
+LIBFT		=		src/libft/libft.a
+
 SRCS		=		src/*.c
 
 OBJS		=		*.o
@@ -7,9 +9,7 @@ OBJS		=		*.o
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRCS)
-	ar -rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	gcc -Wall -Wextra -Werror $(SRCS) $(LIBFT) -o $(NAME)
 
 bonus: $(NAME)
 
@@ -20,3 +20,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+d:	fclean
+	gcc -Wall -Wextra -Werror $(SRCS) $(LIBFT) -g
