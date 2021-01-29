@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_grid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mait-si- <mait-si-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:45:13 by ielbadao          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/01/18 00:28:38 by ielbadao         ###   ########.fr       */
-=======
-/*   Updated: 2021/01/06 10:35:57 by ielbadao         ###   ########.fr       */
->>>>>>> 828092d177da354b40d7381cbafff2f609711962
+/*   Updated: 2021/01/29 15:57:51 by mait-si-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +61,7 @@ void	fill_grid_first(char **arr, char *str, char delimiter)
 {
 	int		count;
 	int		arr_index;
-	
+
 	if (!str || !arr)
 		return ;
 	arr_index = 0;

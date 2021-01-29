@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_env_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mait-si- <mait-si-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 21:13:08 by ielbadao          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/01/18 00:18:16 by ielbadao         ###   ########.fr       */
-=======
-/*   Updated: 2021/01/06 10:30:32 by ielbadao         ###   ########.fr       */
->>>>>>> 828092d177da354b40d7381cbafff2f609711962
+/*   Updated: 2021/01/29 15:58:52 by mait-si-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +20,7 @@ t_map			*fill_env(t_string *envp)
 	map = NULL;
 	while (*envp)
 	{
-<<<<<<< HEAD
-		t_string *env = ft_split_first(*envp, '=');
-=======
 		env = ft_split(*envp, '=');
->>>>>>> 828092d177da354b40d7381cbafff2f609711962
 		add_to_map(&map, init_map(ft_strdup(env[0]), ft_strdup(env[1])));
 		libre_2d(env);
 		envp++;
