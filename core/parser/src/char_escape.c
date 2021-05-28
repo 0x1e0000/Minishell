@@ -6,23 +6,24 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 09:04:11 by ielbadao          #+#    #+#             */
-/*   Updated: 2020/12/17 13:49:54 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/05/23 01:27:04 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parser.h"
 
-t_bool		char_escape(t_string line)
+t_bool	char_escape(t_string line)
 {
-	if (line[g_counter] == '\\' && line[g_counter + 1] != '\0')
+	if (line[g_container->counter] == '\\')
 	{
-		g_flag = 1;
-		g_counter += 2;
+		g_container->flag = 1;
+		g_container->counter += 2;
 		return (true);
 	}
-	else if (line[g_counter] == '\\' && line[g_counter + 1] == '\0')
+	else if (line[g_container->counter] == '\\'
+		&& line[g_container->counter + 1] == '\0')
 	{
-		g_char = line[g_counter];
+		g_container->gchar = line[g_container->counter];
 		return (false);
 	}
 	return (2);

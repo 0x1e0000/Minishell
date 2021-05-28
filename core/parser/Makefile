@@ -1,5 +1,5 @@
 MakeDir = make
-compile = gcc -Wall -Werror -Wextra  -c
+compile = gcc -Wall -Werror -Wextra -c
 src = src/*.c
 obj = *.o
 NAME = parser.a
@@ -11,7 +11,7 @@ $(NAME):
 	@$(MakeDir) -C stdout/
 	@$(MakeDir) -C stdin/
 	@$(MakeDir) -C split/
-	@$(compile) $(src) -I $(lib)
+	@$(compile) $(src) -I $(lib) -g
 	@ar -rc $(NAME) $(obj)
 clean:
 	@$(MakeDir) clean -C stdout/

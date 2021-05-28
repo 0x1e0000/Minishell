@@ -6,42 +6,63 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 14:56:59 by ielbadao          #+#    #+#             */
-/*   Updated: 2020/12/28 12:36:18 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/05/23 11:51:46 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parser.h"
 
-void			skip_word(t_string command)
+static void	help(t_string command)
 {
-	if (g_char > 0)
+	if (command[g_container->counter] == '\\'
+		&& command[g_container->counter + 1] != '\''
+		&& g_container->gchar != '\'')
+		g_container->counter += 2;
+	while (greate_question(command))
 	{
-		while (command[g_counter] != g_char)
-			g_counter++;
-		g_counter++;
-	}
-	else
-	{
-		if (command[g_counter] == '\\')
+		if (check_quote(command[g_container->counter]))
 		{
-			g_counter += 2;
-			return ;
+			g_container->gchar = command[g_container->counter++];
+			while (command[g_container->counter] != g_container->gchar)
+				g_container->counter++;
 		}
-		while (greate_question(command))
-			g_counter++;
+		g_container->counter++;
 	}
 }
 
-void			skip_spaces(t_string command)
+void	skip_word(t_string command)
 {
-	while (command[g_counter] == ' ')
-		g_counter++;
+	if (g_container->gchar > 0)
+	{
+		while (command[g_container->counter] != g_container->gchar)
+		{
+			if (command[g_container->counter] == '\\'
+				&& command[g_container->counter + 1] != '\''
+				&& g_container->gchar != '\'')
+			{
+				g_container->counter += 2;
+				continue ;
+			}
+			g_container->counter++;
+		}
+		g_container->counter++;
+		help(command);
+	}
+	else
+		help(command);
 }
 
-void			skip_redirection(t_string command)
+void	skip_spaces(t_string command)
 {
-	if (command[g_counter] == '>' && command[g_counter + 1] == '>')
-		g_counter += 2;
+	while (command[g_container->counter] == ' ')
+		g_container->counter++;
+}
+
+void	skip_redirection(t_string command)
+{
+	if (command[g_container->counter] == '>'
+		&& command[g_container->counter + 1] == '>')
+		g_container->counter += 2;
 	else
-		g_counter++;
+		g_container->counter++;
 }

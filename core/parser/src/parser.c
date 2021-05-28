@@ -6,23 +6,25 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 12:34:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2020/12/28 20:33:50 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/05/23 12:46:10 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parser.h"
 
-static void		help(t_command **list, t_string *pipes, int id)
+static void	help(t_command **list, t_string *pipes, int id)
 {
 	t_string	trimed;
 
-	trimed = trim(pipes[g_counter_extra]);
-	add_command_to_end(list, init_command(args_extracter(trimed),
-	redirections_extracter(trimed), id));
-	g_counter_extra++;
+	trimed = ft_strdup(trim(pipes[g_container->counter_extra]));
+	add_command_to_end(list,
+		init_command(args_extracter(trimed),
+			redirections_extracter(trimed), id));
+	free(trimed);
+	g_container->counter_extra++;
 }
 
-t_command		*parser(t_string line)
+t_command	*parser(t_string line)
 {
 	t_string	*commands;
 	t_string	*pipes;
@@ -37,9 +39,9 @@ t_command		*parser(t_string line)
 	counter = 0;
 	while (commands[counter])
 	{
-		g_counter_extra = 0;
+		g_container->counter_extra = 0;
 		pipes = spliter(trim(commands[counter]), '|');
-		while (pipes[g_counter_extra])
+		while (pipes[g_container->counter_extra])
 			help(&list, pipes, id);
 		id++;
 		counter++;
